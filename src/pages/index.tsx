@@ -1,6 +1,13 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Footer } from "../components/Footer";
+import GetStarted from "../components/GetStarted";
+import Header from "../components/Header";
+import LinkShortner from "../components/LinkShortner";
+import Navbar from "../components/Navbar";
+import Statistics from "../components/Statistics";
 import BasicLayout from "../layout/Basic";
+import { GrayBgContainer } from "../styles/Components";
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +18,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BasicLayout>
-        <h1>hello</h1>
+        <Navbar />
+        <Header />
+        <LinkShortner />
+        <GrayBgContainer>
+          <Statistics />
+        </GrayBgContainer>
+        <GetStarted />
+        <Footer />
       </BasicLayout>
     </>
   );
