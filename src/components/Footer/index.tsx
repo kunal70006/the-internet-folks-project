@@ -4,9 +4,11 @@ import {
   CustomImage,
   FooterContainer,
   FooterDetailsContainer,
+  FooterHeaderText,
   FooterSocialsContainer,
   FooterText,
   HeaderText,
+  MobileFooterSocialsContainer,
 } from "../../styles/Components";
 import logoWhite from "/public/assets/logoWhite.svg";
 import facebook from "/public/assets/icon-facebook.svg";
@@ -31,24 +33,13 @@ export const Footer = () => {
         <Image src={logoWhite} alt="brand-logo" />
         <FooterSocialsContainer>
           {brandLogos.map((logo, index) => (
-            <CustomImage
-              src={logo}
-              alt="social logo"
-              key={index}
-              style={{ cursor: "pointer" }}
-            />
+            <CustomImage src={logo} alt="social logo" key={index} />
           ))}
         </FooterSocialsContainer>
       </div>
       {footerList.map((item, index) => (
         <FooterDetailsContainer key={index}>
-          <HeaderText
-            style={{
-              fontSize: 18,
-              color: "white",
-              textAlign: "left",
-            }}
-          >
+          <FooterHeaderText>
             {item.title}
             {item.desc.map((feature, index) => (
               <FooterText
@@ -60,9 +51,14 @@ export const Footer = () => {
                 {feature}
               </FooterText>
             ))}
-          </HeaderText>
+          </FooterHeaderText>
         </FooterDetailsContainer>
       ))}
+      <MobileFooterSocialsContainer>
+        {brandLogos.map((logo, index) => (
+          <CustomImage src={logo} alt="social logo" key={index} />
+        ))}
+      </MobileFooterSocialsContainer>
     </FooterContainer>
   );
 };

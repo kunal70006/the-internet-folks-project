@@ -4,16 +4,22 @@ import { ChangeEvent, useState } from "react";
 import { Footer } from "../components/Footer";
 import GetStarted from "../components/GetStarted";
 import Header from "../components/Header";
+import Links from "../components/Links";
 import LinkShortner from "../components/LinkShortner";
 import Navbar from "../components/Navbar";
 import Statistics from "../components/Statistics";
 import BasicLayout from "../layout/Basic";
-import { GrayBgContainer } from "../styles/Components";
+import { CustomBtn, GrayBgContainer } from "../styles/Components";
+
+interface ShortenedURL {
+  url: string;
+  shortUrl: string;
+}
 
 const Home: NextPage = () => {
   const [userInput, setUserInput] = useState<string>("");
-  const [shortenedURL, setShortenedURL] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const [shortenedURL, setShortenedURL] = useState<any>([]);
+  const [error, setError] = useState<string>("No Input Provided");
   const handleUserInput = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
   };
@@ -29,12 +35,18 @@ const Home: NextPage = () => {
       });
       const data = await res.json();
       if (res.ok) {
-        setShortenedURL(data.result_url);
+        setError("No Input Provided");
+        setShortenedURL([
+          ...shortenedURL,
+          { url: userInput, shortUrl: data.result_url },
+        ]);
       } else {
         setError(data.error);
+        // setError("Something went wrong :/");
       }
+      setUserInput("");
     } catch (error: any) {
-      setError(error);
+      setError("Something went wrong :/");
     }
   };
 
@@ -52,8 +64,15 @@ const Home: NextPage = () => {
           userInput={userInput}
           handleChange={handleUserInput}
           shortenURL={shortenURL}
+          error={error}
         />
+
         <GrayBgContainer>
+          {shortenedURL.length > 0
+            ? shortenedURL.map((url: ShortenedURL, index: number) => (
+                <Links link={url} key={index} />
+              ))
+            : null}
           <Statistics />
         </GrayBgContainer>
         <GetStarted />

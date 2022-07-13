@@ -6,12 +6,15 @@ export const NavbarContainer = styled.nav`
   display: flex;
   align-items: center;
   padding: 2em 12em;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavlinksContainer = styled.div`
   display: flex;
   margin-left: 4em;
-  width: 400px;
+  width: 300px;
   justify-content: space-between;
 `;
 
@@ -30,24 +33,57 @@ export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
+  @media screen and (max-width: 768px) {
+    padding: 0 1em 0 1em;
+  }
 `;
 
 export const HeaderText = styled.h1`
   font-size: ${theme.fontSize.xl};
   color: ${theme.colors.neutral.black};
   text-align: center;
+  @media screen and (max-width: 1280px) {
+    font-size: 96px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 54px;
+    margin-bottom: 2em;
+  }
 `;
 
 export const LinkShortnerContainer = styled.div`
   display: flex;
+  flex-direction: row;
   background-image: url(${(props: any) => props.image.src});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 2em 8em;
+  margin: auto 8em;
+  /* margin-bottom: 0; */
   padding: 4em;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  height: 200px;
+  @media screen and (max-width: 1024px) {
+    margin: auto 2em;
+  }
+  @media screen and (max-width: 1440px) {
+    margin: auto 4em;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    margin: auto 1em;
+    padding: 2em 1em;
+    height: auto;
+    overflow-x: hidden;
+  }
+`;
+
+export const CustomInputContainer = styled.div`
+  width: 70%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const CustomInput = styled.input`
@@ -55,7 +91,7 @@ export const CustomInput = styled.input`
   background-color: white;
   padding: 1em 1.5em;
   border: none;
-  width: 70%;
+  width: 95%;
   font-weight: 600;
   font-size: ${theme.fontSize.md};
   color: ${theme.colors.neutral.black};
@@ -64,6 +100,10 @@ export const CustomInput = styled.input`
   }
   :focus {
     outline: none;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    border: 4px solid ${theme.colors.secondary.red};
   }
 `;
 
@@ -80,11 +120,20 @@ export const CustomBtn = styled.button`
   :hover {
     background-color: ${theme.colors.secondary.lightCyan};
   }
+
+  @media screen and (max-width: 1024px) {
+    padding: 1em 2em;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-top: 1.5em;
+  }
 `;
 
 export const GrayBgContainer = styled.div`
   background-color: ${theme.colors.neutral.grayBg};
   padding-bottom: 10em;
+  padding-top: 4em;
 `;
 
 export const StatisticsContainer = styled.div`
@@ -92,6 +141,11 @@ export const StatisticsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding-top: 4em;
+  @media screen and (max-width: 768px) {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
 `;
 
 export const BodyText = styled.p`
@@ -104,11 +158,18 @@ export const BodyText = styled.p`
 
 export const BrandCardsWrapper = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding-left: 4em;
-  padding-right: 4em;
+  padding: 0 4em;
   align-items: center;
+  @media screen and (max-width: 1024px) {
+    padding: 0 1em;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 1em;
+  }
 `;
 
 export const BrandCardContainer = styled.div`
@@ -123,6 +184,19 @@ export const BrandCardContainer = styled.div`
   padding-left: 3em;
   padding-right: 3em;
   margin-top: 8em;
+  @media screen and (max-width: 1280px) {
+    padding-right: 2em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+  }
+  @media screen and (max-width: 768px) {
+    width: auto;
+    align-items: center;
+    margin-top: 0;
+    :first-child {
+      margin-top: 8em;
+    }
+  }
 `;
 
 export const BrandCardImageContainer = styled.div`
@@ -134,6 +208,8 @@ export const BrandCardImageContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: -3em;
+  @media screen and (max-width: 768px) {
+  }
 `;
 
 export const BlueConnectingLines = styled.div`
@@ -142,6 +218,11 @@ export const BlueConnectingLines = styled.div`
   width: 16%;
   margin-top: 6em;
   background-color: ${theme.colors.primary.cyan};
+  @media screen and (max-width: 768px) {
+    width: 10px;
+    height: 150px;
+    margin: 0;
+  }
 `;
 
 export const FooterContainer = styled.footer`
@@ -150,6 +231,25 @@ export const FooterContainer = styled.footer`
   min-height: 25vh;
   padding: 4em 12em;
   align-items: flex-start;
+
+  @media screen and (max-width: 1024px) {
+    padding: 4em;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 4em 0;
+  }
+`;
+
+export const FooterHeaderText = styled(HeaderText)`
+  color: white;
+  font-size: 18px;
+  text-align: left;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin-top: 2em;
+  }
 `;
 
 export const FooterSocialsContainer = styled.div`
@@ -157,7 +257,14 @@ export const FooterSocialsContainer = styled.div`
   margin-top: 2em;
   width: 200px;
   justify-content: space-between;
-  margin-right: 14em;
+  margin-right: 15em;
+
+  @media screen and (max-width: 1280px) {
+    margin-right: 6em;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const CustomImage = styled(Image)`
@@ -172,6 +279,7 @@ export const FooterDetailsContainer = styled.div`
   flex-direction: column;
   /* background-color: rebeccapurple; */
   width: 100%;
+  /* margin-right: 6em; */
   height: 100%;
 `;
 
@@ -184,5 +292,109 @@ export const FooterText = styled(BodyText)`
   transition: 0.2s ease-in;
   :hover {
     color: ${theme.colors.primary.cyan};
+  }
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    width: 100%;
+  }
+`;
+
+export const LinksContainer = styled.div`
+  display: flex;
+  margin: auto 10em;
+  padding: 1em 4em;
+  justify-content: space-between;
+  background-color: white;
+  margin-bottom: 2em;
+  border-radius: 8px;
+  align-items: center;
+  @media screen and (max-width: 1280px) {
+    margin: auto 6em;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 1em 2em;
+    margin: auto 4.5em;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 1em;
+    margin: 0 1em;
+    margin-bottom: 2em;
+    flex-direction: column;
+  }
+`;
+
+export const LinkText = styled(BodyText)`
+  color: ${theme.colors.primary.cyan};
+  margin-right: 2em;
+  @media screen and (max-width: 1024px) {
+    margin-right: 1em;
+  }
+  @media screen and (max-width: 768px) {
+    margin-right: 0;
+    text-align: left;
+    width: 100%;
+  }
+`;
+
+export const StatisticsHeaderText = styled(HeaderText)`
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 1em;
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+  }
+`;
+
+export const LinkHeaderText = styled(HeaderText)`
+  text-align: left;
+  font-size: 18px;
+  @media screen and (max-width: 768px) {
+    border-bottom: 1px solid ${theme.colors.neutral.gray};
+    padding-bottom: 1em;
+  }
+`;
+
+export const LinkBtn = styled(CustomBtn)`
+  background-color: ${theme.colors.primary.darkViolet};
+  :hover {
+    background-color: ${theme.colors.primary.darkViolet};
+  }
+`;
+
+export const ShortUrlContainer = styled.div`
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+export const ErrorText = styled.p`
+  color: ${theme.colors.secondary.red};
+  font-size: 16px;
+  margin-top: 1em;
+  margin-left: 1em;
+  @media screen and (max-width: 768px) {
+    margin-top: 0.4em;
+    margin-left: 0;
+  }
+`;
+
+export const GetStartedBtn = styled(CustomBtn)`
+  border-radius: 32px;
+  @media screen and (max-width: 768px) {
+    width: auto;
+  }
+`;
+
+export const MobileFooterSocialsContainer = styled(FooterSocialsContainer)`
+  margin: 0;
+  width: 200px;
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: flex;
   }
 `;

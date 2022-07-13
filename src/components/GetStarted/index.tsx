@@ -1,5 +1,5 @@
 import {
-  CustomBtn,
+  GetStartedBtn,
   HeaderText,
   LinkShortnerContainer,
 } from "../../styles/Components";
@@ -10,12 +10,16 @@ const GetStarted = () => {
     <LinkShortnerContainer
       // @ts-ignore
       image={meteor}
-      style={{ margin: "auto", flexDirection: "column" }}
+      style={{
+        margin: "auto",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
     >
       <HeaderText style={{ color: "white", fontSize: 32, marginBottom: "1em" }}>
         Boost your links today
       </HeaderText>
-      <CustomBtn style={{ borderRadius: "32px" }}>Get Started</CustomBtn>
+      <GetStartedBtn>Get Started</GetStartedBtn>
     </LinkShortnerContainer>
   );
 };
