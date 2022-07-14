@@ -25,24 +25,24 @@ const Home: NextPage = () => {
     setUserInput(e.target.value);
   };
 
-  // const testData = [
-  //   {
-  //     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-  //     shortUrl: "https://hideuri.com/822D77",
-  //   },
-  //   {
-  //     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-  //     shortUrl: "https://hideuri.com/822D77",
-  //   },
-  //   {
-  //     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-  //     shortUrl: "https://hideuri.com/822D77",
-  //   },
-  //   {
-  //     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-  //     shortUrl: "https://hideuri.com/822D77",
-  //   },
-  // ];
+  const testData = [
+    {
+      url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      shortUrl: "https://hideuri.com/822D77",
+    },
+    {
+      url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      shortUrl: "https://hideuri.com/822D77",
+    },
+    {
+      url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      shortUrl: "https://hideuri.com/822D77",
+    },
+    {
+      url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      shortUrl: "https://hideuri.com/822D77",
+    },
+  ];
 
   const shortenURL = async () => {
     try {
@@ -87,16 +87,16 @@ const Home: NextPage = () => {
         />
 
         <GrayBgContainer>
-          {shortenedURL.length > 0
+          {/* {shortenedURL.length > 0
             ? shortenedURL.map((url: ShortenedURL, index: number) => (
                 <Links link={url} key={index} />
               ))
-            : null}
-          {/* {testData.length > 0
+            : null} */}
+          {testData.length > 0
             ? testData.map((url: ShortenedURL, index: number) => (
                 <Links link={url} key={index} />
               ))
-            : null} */}
+            : null}
           <Statistics />
         </GrayBgContainer>
         <GetStarted />
