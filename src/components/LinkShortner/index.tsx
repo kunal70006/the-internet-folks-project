@@ -41,6 +41,7 @@ const LinkShortner = ({
         <CustomBtn
           onClick={shortenURL}
           disabled={userInput.length === 0 ? true : false}
+          style={{ display: "flex", justifyContent: "center" }}
         >
           {isLoading ? <Loader /> : "Shorten it!"}
         </CustomBtn>
