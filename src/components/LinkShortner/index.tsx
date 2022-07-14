@@ -5,6 +5,7 @@ import {
   CustomInputContainer,
   ErrorText,
   LinkShortnerContainer,
+  Loader,
 } from "../../styles/Components";
 import meteor from "/public/assets/Meteor.png";
 
@@ -13,6 +14,7 @@ interface LinkShortnerProps {
   userInput: any;
   shortenURL: () => void;
   error: string;
+  isLoading: boolean;
 }
 
 const LinkShortner = ({
@@ -20,6 +22,7 @@ const LinkShortner = ({
   userInput,
   shortenURL,
   error,
+  isLoading,
 }: LinkShortnerProps) => {
   return (
     <>
@@ -39,7 +42,7 @@ const LinkShortner = ({
           onClick={shortenURL}
           disabled={userInput.length === 0 ? true : false}
         >
-          Shorten it!
+          {isLoading ? <Loader /> : "Shorten it!"}
         </CustomBtn>
       </LinkShortnerContainer>
     </>

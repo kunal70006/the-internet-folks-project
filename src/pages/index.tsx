@@ -20,30 +20,48 @@ const Home: NextPage = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [shortenedURL, setShortenedURL] = useState<any>([]);
   const [error, setError] = useState<string>("No Input Provided");
+  const [isLoading, setIsLoading] = useState(false);
   const handleUserInput = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
   };
 
+  // const testData = [
+  //   {
+  //     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  //     shortUrl: "https://hideuri.com/822D77",
+  //   },
+  //   {
+  //     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  //     shortUrl: "https://hideuri.com/822D77",
+  //   },
+  //   {
+  //     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  //     shortUrl: "https://hideuri.com/822D77",
+  //   },
+  //   {
+  //     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  //     shortUrl: "https://hideuri.com/822D77",
+  //   },
+  // ];
+
   const shortenURL = async () => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
-        body: `url=${userInput}`,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        method: "POST",
-      });
+      setIsLoading(true);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}?url=${userInput}`
+      );
       const data = await res.json();
       if (res.ok) {
         setError("No Input Provided");
         setShortenedURL([
           ...shortenedURL,
-          { url: userInput, shortUrl: data.result_url },
+          { url: userInput, shortUrl: data.result.full_short_link },
         ]);
       } else {
         setError(data.error);
         // setError("Something went wrong :/");
       }
+      setIsLoading(false);
       setUserInput("");
     } catch (error: any) {
       setError("Something went wrong :/");
@@ -65,6 +83,7 @@ const Home: NextPage = () => {
           handleChange={handleUserInput}
           shortenURL={shortenURL}
           error={error}
+          isLoading={isLoading}
         />
 
         <GrayBgContainer>
@@ -73,6 +92,11 @@ const Home: NextPage = () => {
                 <Links link={url} key={index} />
               ))
             : null}
+          {/* {testData.length > 0
+            ? testData.map((url: ShortenedURL, index: number) => (
+                <Links link={url} key={index} />
+              ))
+            : null} */}
           <Statistics />
         </GrayBgContainer>
         <GetStarted />

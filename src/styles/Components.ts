@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import theme from "./Theme";
 import Image from "next/image";
 
@@ -427,4 +427,18 @@ export const MobileFooterSocialsContainer = styled(FooterSocialsContainer)`
   @media screen and (max-width: 768px) {
     display: flex;
   }
+`;
+
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+export const Loader = styled.div`
+  border: 3px solid ${theme.colors.primary.darkViolet};
+  border-top: 3px solid white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: ${spin} 2s linear infinite;
 `;
