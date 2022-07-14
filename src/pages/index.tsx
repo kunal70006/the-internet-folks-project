@@ -87,16 +87,16 @@ const Home: NextPage = () => {
         />
 
         <GrayBgContainer>
-          {/* {shortenedURL.length > 0
+          {shortenedURL.length > 0
             ? shortenedURL.map((url: ShortenedURL, index: number) => (
                 <Links link={url} key={index} />
               ))
-            : null} */}
-          {testData.length > 0
+            : null}
+          {/* {testData.length > 0
             ? testData.map((url: ShortenedURL, index: number) => (
                 <Links link={url} key={index} />
               ))
-            : null}
+            : null} */}
           <Statistics />
         </GrayBgContainer>
         <GetStarted />
