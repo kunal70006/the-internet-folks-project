@@ -18,6 +18,7 @@ interface Size {
 const Navbar = () => {
   const size: Size = useWindowSize();
   const [isOpen, setIsOpen] = useState(false);
+  // @ts-ignore
   return size.width > 768 ? (
     <NavbarContainer>
       <Image src={logo} alt="brand-logo" />
