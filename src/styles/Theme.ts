@@ -24,8 +24,10 @@ const theme = {
     xl: "128px",
   },
   breakpoints: {
-    sm: "375px",
-    lg: "1440px",
+    sm: "768px",
+    md: "1024px",
+    lg: "1280px",
+    xl: "1440px",
   },
 };
 

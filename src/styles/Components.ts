@@ -2,11 +2,12 @@ import styled, { keyframes } from "styled-components";
 import theme from "./Theme";
 import Image from "next/image";
 
+// Containers and Wrappers
 export const NavbarContainer = styled.nav`
   display: flex;
   align-items: center;
   padding: 2em 12em;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
     display: none;
   }
 `;
@@ -44,40 +45,12 @@ export const MobileNavlinksContainer = styled.div`
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
-
-export const Navlinks = styled.p`
-  font-size: ${theme.fontSize.md};
-  color: ${theme.colors.neutral.gray};
-  transition: 0.2s ease-in;
-  font-weight: 700;
-  cursor: pointer;
-  :hover {
-    color: ${theme.colors.neutral.black};
-  }
-  @media screen and (max-width: 420px) {
-    font-size: 32px;
-  }
-`;
-
 export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
     padding: 0 1em 0 1em;
-  }
-`;
-
-export const HeaderText = styled.h1`
-  font-size: ${theme.fontSize.xl};
-  color: ${theme.colors.neutral.black};
-  text-align: center;
-  @media screen and (max-width: 1280px) {
-    font-size: 96px;
-  }
-  @media screen and (max-width: 768px) {
-    font-size: 54px;
-    margin-bottom: 2em;
   }
 `;
 
@@ -94,13 +67,13 @@ export const LinkShortnerContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   height: 200px;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${theme.breakpoints.md}) {
     margin: auto 2em;
   }
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: ${theme.breakpoints.xl}) {
     margin: auto 4em;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
     flex-direction: column;
     margin: auto 1em;
     padding: 2em 1em;
@@ -111,11 +84,275 @@ export const LinkShortnerContainer = styled.div`
 
 export const CustomInputContainer = styled.div`
   width: 70%;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
     width: 100%;
   }
 `;
 
+export const GrayBgContainer = styled.div`
+  background-color: ${theme.colors.neutral.grayBg};
+  padding-bottom: 10em;
+  padding-top: 4em;
+`;
+
+export const StatisticsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 4em;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+`;
+
+export const BrandCardsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 4em;
+  align-items: center;
+  @media screen and (max-width: ${theme.breakpoints.md}) {
+    padding: 0 1em;
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    flex-direction: column;
+    padding: 0 1em;
+  }
+`;
+
+export const BrandCardContainer = styled.div`
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 400px;
+  min-height: 300px;
+  text-align: left;
+  padding-left: 3em;
+  padding-right: 3em;
+  margin-top: 8em;
+  @media screen and (max-width: ${theme.breakpoints.lg}) {
+    padding-right: 2em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    width: auto;
+    align-items: center;
+    margin-top: 0;
+    :first-child {
+      margin-top: 8em;
+    }
+  }
+`;
+
+export const BrandCardImageContainer = styled.div`
+  border-radius: 100%;
+  background-color: ${theme.colors.primary.darkViolet};
+  width: fit-content;
+  padding: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -3em;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+  }
+`;
+
+export const FooterContainer = styled.footer`
+  display: flex;
+  background-color: ${theme.colors.neutral.veryDarkViolet};
+  min-height: 25vh;
+  padding: 4em 12em;
+  align-items: flex-start;
+
+  @media screen and (max-width: ${theme.breakpoints.md}) {
+    padding: 4em;
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    flex-direction: column;
+    align-items: center;
+    padding: 4em 0;
+  }
+`;
+
+export const FooterSocialsContainer = styled.div`
+  display: flex;
+  margin-top: 2em;
+  width: 200px;
+  justify-content: space-between;
+  margin-right: 15em;
+
+  @media screen and (max-width: ${theme.breakpoints.lg}) {
+    margin-right: 6em;
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    display: none;
+  }
+`;
+
+export const FooterDetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* background-color: rebeccapurple; */
+  width: 100%;
+  /* margin-right: 6em; */
+  height: 100%;
+`;
+
+export const LinksContainer = styled.div`
+  display: flex;
+  margin: auto 10em;
+  padding: 1em 4em;
+  justify-content: space-between;
+  background-color: white;
+  margin-bottom: 2em;
+  border-radius: 8px;
+  align-items: center;
+  @media screen and (max-width: ${theme.breakpoints.lg}) {
+    margin: auto 6em;
+  }
+  @media screen and (max-width: ${theme.breakpoints.md}) {
+    padding: 1em 2em;
+    margin: auto 4.5em;
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    padding: 1em;
+    margin: 0 1em;
+    margin-bottom: 2em;
+    flex-direction: column;
+  }
+`;
+
+export const ShortUrlContainer = styled.div`
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: ${theme.breakpoints.md}) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    width: 100%;
+  }
+`;
+
+export const MobileFooterSocialsContainer = styled(FooterSocialsContainer)`
+  margin: 0;
+  width: 200px;
+  display: none;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    display: flex;
+  }
+`;
+
+// Custom Texts
+export const Navlinks = styled.p`
+  font-size: ${theme.fontSize.md};
+  color: ${theme.colors.neutral.gray};
+  transition: 0.2s ease-in;
+  font-weight: 700;
+  cursor: pointer;
+  :hover {
+    color: ${theme.colors.neutral.black};
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    font-size: 32px;
+  }
+`;
+
+export const HeaderText = styled.h1`
+  font-size: ${theme.fontSize.xl};
+  color: ${theme.colors.neutral.black};
+  text-align: center;
+  @media screen and (max-width: ${theme.breakpoints.lg}) {
+    font-size: 96px;
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    font-size: 54px;
+    margin-bottom: 2em;
+  }
+`;
+
+export const BodyText = styled.p`
+  font-size: ${theme.fontSize.md};
+  color: ${theme.colors.textColor};
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+`;
+
+export const FooterHeaderText = styled(HeaderText)`
+  color: white;
+  font-size: 18px;
+  text-align: left;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    text-align: center;
+    margin-top: 2em;
+  }
+`;
+
+export const FooterText = styled(BodyText)`
+  text-align: left;
+  font-weight: normal;
+  margin-bottom: 0.5em;
+  width: fit-content;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  :hover {
+    color: ${theme.colors.primary.cyan};
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    text-align: center;
+    width: 100%;
+  }
+`;
+
+export const LinkText = styled(BodyText)`
+  color: ${theme.colors.primary.cyan};
+  margin-right: 2em;
+  @media screen and (max-width: ${theme.breakpoints.md}) {
+    margin-right: 1em;
+  }
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    margin-right: 0;
+    text-align: left;
+    width: 100%;
+  }
+`;
+
+export const StatisticsHeaderText = styled(HeaderText)`
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 1em;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    font-size: 32px;
+  }
+`;
+
+export const LinkHeaderText = styled(HeaderText)`
+  text-align: left;
+  font-size: 18px;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    border-bottom: 1px solid ${theme.colors.neutral.gray};
+    padding-bottom: 1em;
+  }
+`;
+
+export const ErrorText = styled.p`
+  color: ${theme.colors.secondary.red};
+  font-size: 16px;
+  margin-top: 1em;
+  margin-left: 1em;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    margin-top: 0.4em;
+    margin-left: 0;
+  }
+`;
+
+// Custom Inputs
 export const CustomInput = styled.input`
   border-radius: 8px;
   background-color: white;
@@ -131,7 +368,7 @@ export const CustomInput = styled.input`
   :focus {
     outline: none;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
     width: 100%;
     border: 4px solid ${theme.colors.secondary.red};
   }
@@ -151,149 +388,12 @@ export const CustomBtn = styled.button`
     background-color: ${theme.colors.secondary.lightCyan};
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${theme.breakpoints.md}) {
     padding: 1em 2em;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
     width: 100%;
     margin-top: 1.5em;
-  }
-`;
-
-export const GrayBgContainer = styled.div`
-  background-color: ${theme.colors.neutral.grayBg};
-  padding-bottom: 10em;
-  padding-top: 4em;
-`;
-
-export const StatisticsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding-top: 4em;
-  @media screen and (max-width: 768px) {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-`;
-
-export const BodyText = styled.p`
-  font-size: ${theme.fontSize.md};
-  color: ${theme.colors.textColor};
-  font-weight: 600;
-  letter-spacing: 1px;
-  line-height: 1.5em;
-`;
-
-export const BrandCardsWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 4em;
-  align-items: center;
-  @media screen and (max-width: 1024px) {
-    padding: 0 1em;
-  }
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    padding: 0 1em;
-  }
-`;
-
-export const BrandCardContainer = styled.div`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  width: 400px;
-  min-height: 300px;
-  text-align: left;
-  padding-left: 3em;
-  padding-right: 3em;
-  margin-top: 8em;
-  @media screen and (max-width: 1280px) {
-    padding-right: 2em;
-    padding-left: 2em;
-    padding-bottom: 2em;
-  }
-  @media screen and (max-width: 768px) {
-    width: auto;
-    align-items: center;
-    margin-top: 0;
-    :first-child {
-      margin-top: 8em;
-    }
-  }
-`;
-
-export const BrandCardImageContainer = styled.div`
-  border-radius: 100%;
-  background-color: ${theme.colors.primary.darkViolet};
-  width: fit-content;
-  padding: 1.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -3em;
-  @media screen and (max-width: 768px) {
-  }
-`;
-
-export const BlueConnectingLines = styled.div`
-  height: 10px;
-  display: flex;
-  width: 16%;
-  margin-top: 6em;
-  background-color: ${theme.colors.primary.cyan};
-  @media screen and (max-width: 768px) {
-    width: 10px;
-    height: 150px;
-    margin: 0;
-  }
-`;
-
-export const FooterContainer = styled.footer`
-  display: flex;
-  background-color: ${theme.colors.neutral.veryDarkViolet};
-  min-height: 25vh;
-  padding: 4em 12em;
-  align-items: flex-start;
-
-  @media screen and (max-width: 1024px) {
-    padding: 4em;
-  }
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    padding: 4em 0;
-  }
-`;
-
-export const FooterHeaderText = styled(HeaderText)`
-  color: white;
-  font-size: 18px;
-  text-align: left;
-  @media screen and (max-width: 768px) {
-    text-align: center;
-    margin-top: 2em;
-  }
-`;
-
-export const FooterSocialsContainer = styled.div`
-  display: flex;
-  margin-top: 2em;
-  width: 200px;
-  justify-content: space-between;
-  margin-right: 15em;
-
-  @media screen and (max-width: 1280px) {
-    margin-right: 6em;
-  }
-  @media screen and (max-width: 768px) {
-    display: none;
   }
 `;
 
@@ -304,86 +404,6 @@ export const CustomImage = styled(Image)`
   }
 `;
 
-export const FooterDetailsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* background-color: rebeccapurple; */
-  width: 100%;
-  /* margin-right: 6em; */
-  height: 100%;
-`;
-
-export const FooterText = styled(BodyText)`
-  text-align: left;
-  font-weight: normal;
-  margin-bottom: 0.5em;
-  width: fit-content;
-  cursor: pointer;
-  transition: 0.2s ease-in;
-  :hover {
-    color: ${theme.colors.primary.cyan};
-  }
-  @media screen and (max-width: 768px) {
-    text-align: center;
-    width: 100%;
-  }
-`;
-
-export const LinksContainer = styled.div`
-  display: flex;
-  margin: auto 10em;
-  padding: 1em 4em;
-  justify-content: space-between;
-  background-color: white;
-  margin-bottom: 2em;
-  border-radius: 8px;
-  align-items: center;
-  @media screen and (max-width: 1280px) {
-    margin: auto 6em;
-  }
-  @media screen and (max-width: 1024px) {
-    padding: 1em 2em;
-    margin: auto 4.5em;
-  }
-  @media screen and (max-width: 768px) {
-    padding: 1em;
-    margin: 0 1em;
-    margin-bottom: 2em;
-    flex-direction: column;
-  }
-`;
-
-export const LinkText = styled(BodyText)`
-  color: ${theme.colors.primary.cyan};
-  margin-right: 2em;
-  @media screen and (max-width: 1024px) {
-    margin-right: 1em;
-  }
-  @media screen and (max-width: 768px) {
-    margin-right: 0;
-    text-align: left;
-    width: 100%;
-  }
-`;
-
-export const StatisticsHeaderText = styled(HeaderText)`
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 1em;
-  @media screen and (max-width: 768px) {
-    font-size: 32px;
-  }
-`;
-
-export const LinkHeaderText = styled(HeaderText)`
-  text-align: left;
-  font-size: 18px;
-  @media screen and (max-width: 768px) {
-    border-bottom: 1px solid ${theme.colors.neutral.gray};
-    padding-bottom: 1em;
-  }
-`;
-
 export const LinkBtn = styled(CustomBtn)`
   background-color: ${theme.colors.primary.darkViolet};
   :hover {
@@ -391,41 +411,24 @@ export const LinkBtn = styled(CustomBtn)`
   }
 `;
 
-export const ShortUrlContainer = styled.div`
-  display: flex;
-  align-items: center;
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
-  }
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-export const ErrorText = styled.p`
-  color: ${theme.colors.secondary.red};
-  font-size: 16px;
-  margin-top: 1em;
-  margin-left: 1em;
-  @media screen and (max-width: 768px) {
-    margin-top: 0.4em;
-    margin-left: 0;
-  }
-`;
-
 export const GetStartedBtn = styled(CustomBtn)`
-  border-radius: 32px;
-  @media screen and (max-width: 768px) {
+  border-radius: 36px;
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
     width: auto;
   }
 `;
 
-export const MobileFooterSocialsContainer = styled(FooterSocialsContainer)`
-  margin: 0;
-  width: 200px;
-  display: none;
-  @media screen and (max-width: 768px) {
-    display: flex;
+// Misc.
+export const BlueConnectingLines = styled.div`
+  height: 10px;
+  display: flex;
+  width: 16%;
+  margin-top: 6em;
+  background-color: ${theme.colors.primary.cyan};
+  @media screen and (max-width: ${theme.breakpoints.sm}) {
+    width: 10px;
+    height: 150px;
+    margin: 0;
   }
 `;
 

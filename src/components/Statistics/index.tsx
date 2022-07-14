@@ -3,7 +3,6 @@ import {
   BlueConnectingLines,
   BodyText,
   BrandCardsWrapper,
-  HeaderText,
   StatisticsContainer,
   StatisticsHeaderText,
 } from "../../styles/Components";

@@ -11,7 +11,7 @@ import meteor from "/public/assets/Meteor.png";
 
 interface LinkShortnerProps {
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  userInput: any;
+  userInput: string;
   shortenURL: () => void;
   error: string;
   isLoading: boolean;

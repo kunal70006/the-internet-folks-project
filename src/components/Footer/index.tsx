@@ -1,13 +1,11 @@
 import Image from "next/image";
 import {
-  BodyText,
   CustomImage,
   FooterContainer,
   FooterDetailsContainer,
   FooterHeaderText,
   FooterSocialsContainer,
   FooterText,
-  HeaderText,
   MobileFooterSocialsContainer,
 } from "../../styles/Components";
 import logoWhite from "/public/assets/logoWhite.svg";
